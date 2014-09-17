@@ -26,41 +26,43 @@ To run both the measurement tool and the processing tool, the following requirem
 
 Assuming that all the above requirements are met:
 
-1.The measurement tool should be included in any Java project by importing the file ``cf-javalogger-0.4.5.jar``.
-2.According to your system, place in the classpath directory either ``libsigar-amd64-linux.so``, ``libsigar-x86-linux.so`` or ``libsigar-universal64-macosx.dylib``.
-3.Import the following into your Java source file.
+1. The measurement tool should be included in any Java project by importing the file ``cf-javalogger-0.4.5.jar``.
 
-```java
-import static cf.os.javalogger.core.Log.*;
-```
+2. According to your system, place in the classpath directory either ``libsigar-amd64-linux.so``, ``libsigar-x86-linux.so`` or ``libsigar-universal64-macosx.dylib``.
 
-4.Perform measurements by performing calls in your code. Bear in mind that you should have a key suffixed by either ***_start*** or ***_stop***, depending wether it's the begin or the termination of a given measurement key.
+3. Import the following into your Java source file.
 
-```java
-Boolean stuff = true;
-measure("some_stuff_start", "Stuff", "Test 1");
-measure("some_stuff_stop", "Stuff", "Test 2", stuff);
-closeLogger(); // Should close logger to assert everything was properly flushed. This is only needed ONCE.
-```
+  ```java
+  import static cf.os.javalogger.core.Log.*;
+  ```
 
-5.Edit the top of the file ``lp.py``, changing the following variables.
+4. Perform measurements by performing calls in your code. Bear in mind that you should have a key suffixed by either ***_start*** or ***_stop***, depending wether it's the begin or the termination of a given measurement key.
 
-```python
-# Where the log files can be found
-DIR_PRE = "/home/user/log_files/"
-# Subdirectories, in case you produced several measurements
-DIR = ["m1", "m2", "m3"]
-# Another branch of subdirectories inside which separate different tests (You can leave this list empty)
-VPS_COMPS = ["LOGS"]
-# Keys to find within log files, without the _start and _stop suffixes
-KEYS = ["some_stuff"]
-```
+  ```java
+  Boolean stuff = true;
+  measure("some_stuff_start", "Stuff", "Test 1");
+  measure("some_stuff_stop", "Stuff", "Test 2", stuff);
+  closeLogger(); // Should close logger to assert everything was properly flushed. This is only needed ONCE.
+  ```
 
-6.Run the parser
+5. Edit the top of the file ``lp.py``, changing the following variables.
 
-```bash
-$ python lp.py
-```
+  ```python
+  # Where the log files can be found
+  DIR_PRE = "/home/user/log_files/"
+  # Subdirectories, in case you produced several measurements
+  DIR = ["m1", "m2", "m3"]
+  # Another branch of subdirectories inside which separate different tests (You can leave this list empty)
+  VPS_COMPS = ["LOGS"]
+  # Keys to find within log files, without the _start and _stop suffixes
+  KEYS = ["some_stuff"]
+  ```
+
+6. Run the parser.
+
+  ```bash
+  $ python lp.py
+  ```
 
 ## Source
 
