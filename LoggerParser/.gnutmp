@@ -1,0 +1,5 @@
+set term pngcairo
+set datafile separator ','
+set key autotitle columnhead
+set output 'results/Dummy_velox_mem_log_1.png'
+plot 'results/Dummy_velox_mem_log_1' u 1 w lines, '' u 2 w lines
