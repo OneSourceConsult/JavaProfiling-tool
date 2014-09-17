@@ -31,34 +31,35 @@ Assuming that all the above requirements are met:
 3. Import the following into your Java source file.
 
 ```java
-		import static cf.os.javalogger.core.Log.*;
+import static cf.os.javalogger.core.Log.*;
 ```
 
 4. Perform measurements by performing calls in your code. Bear in mind that you should have a key suffixed by either ***_start*** or ***_stop***, depending wether it's the begin or the termination of a given measurement key.
 
 ```java
-		Boolean stuff = true;
-		measure("some_stuff_start", "Stuff", "Test 1");
-		measure("some_stuff_stop", "Stuff", "Test 2", stuff);
-		closeLogger(); // Should close logger to assert everything was properly flushed. This is only needed ONCE.	```	
+Boolean stuff = true;
+measure("some_stuff_start", "Stuff", "Test 1");
+measure("some_stuff_stop", "Stuff", "Test 2", stuff);
+closeLogger(); // Should close logger to assert everything was properly flushed. This is only needed ONCE.
+```
 
 5. Edit the top of the file ``lp.py``, changing the following variables.
 
 ```python
-		# Where the log files can be found
-		DIR_PRE = "/home/user/log_files/"
-		# Subdirectories, in case you produced several measurements
-		DIR = ["m1", "m2", "m3"]
-		# Another branch of subdirectories inside which separate different tests (You can leave this list empty)
-		VPS_COMPS = ["LOGS"]
-		# Keys to find within log files, without the _start and _stop suffixes
-		KEYS = ["some_stuff"]
+# Where the log files can be found
+DIR_PRE = "/home/user/log_files/"
+# Subdirectories, in case you produced several measurements
+DIR = ["m1", "m2", "m3"]
+# Another branch of subdirectories inside which separate different tests (You can leave this list empty)
+VPS_COMPS = ["LOGS"]
+# Keys to find within log files, without the _start and _stop suffixes
+KEYS = ["some_stuff"]
 ```
 
 6. Run the parser
 
 ```bash
-		$ python lp.py
+$ python lp.py
 ```
 
 ## Source
