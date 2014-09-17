@@ -76,7 +76,7 @@ This project has been developed in the scope of the CityFlow project[🔗](http:
 
 ## License
 
-Distributed under the MIT license. See ``LICENSE`` for more information.
+Distributed under the Apache 2 license. See ``LICENSE`` for more information.
 
 ##About
 
