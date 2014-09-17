@@ -26,15 +26,15 @@ To run both the measurement tool and the processing tool, the following requirem
 
 Assuming that all the above requirements are met:
 
-1. The measurement tool should be included in any Java project by importing the file ``cf-javalogger-0.4.5.jar``.
-2. According to your system, place in the classpath directory either ``libsigar-amd64-linux.so``, ``libsigar-x86-linux.so`` or ``libsigar-universal64-macosx.dylib``.
-3. Import the following into your Java source file.
+1.The measurement tool should be included in any Java project by importing the file ``cf-javalogger-0.4.5.jar``.
+2.According to your system, place in the classpath directory either ``libsigar-amd64-linux.so``, ``libsigar-x86-linux.so`` or ``libsigar-universal64-macosx.dylib``.
+3.Import the following into your Java source file.
 
 ```java
 import static cf.os.javalogger.core.Log.*;
 ```
 
-4. Perform measurements by performing calls in your code. Bear in mind that you should have a key suffixed by either ***_start*** or ***_stop***, depending wether it's the begin or the termination of a given measurement key.
+4.Perform measurements by performing calls in your code. Bear in mind that you should have a key suffixed by either ***_start*** or ***_stop***, depending wether it's the begin or the termination of a given measurement key.
 
 ```java
 Boolean stuff = true;
@@ -43,7 +43,7 @@ measure("some_stuff_stop", "Stuff", "Test 2", stuff);
 closeLogger(); // Should close logger to assert everything was properly flushed. This is only needed ONCE.
 ```
 
-5. Edit the top of the file ``lp.py``, changing the following variables.
+5.Edit the top of the file ``lp.py``, changing the following variables.
 
 ```python
 # Where the log files can be found
@@ -56,7 +56,7 @@ VPS_COMPS = ["LOGS"]
 KEYS = ["some_stuff"]
 ```
 
-6. Run the parser
+6.Run the parser
 
 ```bash
 $ python lp.py
