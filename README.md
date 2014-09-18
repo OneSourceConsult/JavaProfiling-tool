@@ -9,7 +9,7 @@ This project started as a way to facilitate the profiling of the Java applicatio
 ## Features
 
 - Integration within any Java application
-- No need for instatiation, nor having variables passing through your code. Just a **single** code call into a static method
+- No need for instantiation, nor having variables passing through your code. Just a **single** code call into a static method
 - Secondary tool to do the heavy work of processing the results and creating human-readable graphs
 
 ## Requirements
